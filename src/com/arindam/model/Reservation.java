@@ -1,7 +1,5 @@
 package com.arindam.model;
 
-import com.arindam.model.Passenger;
-
 public class Reservation {
     private Flight flight;
     private Passenger passenger;

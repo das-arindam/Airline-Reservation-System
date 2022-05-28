@@ -1,7 +1,8 @@
 package com.arindam;
 
 import com.arindam.model.Flight;
-import com.arindam.model.Passenger;
+import com.arindam.util.PassengerUtil;
+import com.arindam.util.SeatUtil;
 import com.arindam.util.Util;
 
 import java.util.Scanner;
@@ -19,12 +20,11 @@ public class AirlineReservationSystem {
         String flightArrivalTime = scanner.nextLine();
         System.out.println("Enter flight capacity");
         int flightCapacity = Integer.parseInt(scanner.nextLine());
+        Flight flight = new Flight(flightOrigin, flightDestination, flightDepartureTime, flightArrivalTime, flightCapacity);
 
 
-        Flight flight = new Flight(flightOrigin,flightDestination,flightDepartureTime,flightArrivalTime,flightCapacity);
         Util utl = new Util();
-        utl.util(flight);
-
+        utl.util(flight, SeatUtil.seatUtil(), PassengerUtil.passengerUtil());
 
 
     }
