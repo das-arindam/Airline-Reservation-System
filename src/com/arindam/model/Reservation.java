@@ -1,8 +1,6 @@
-package com.arindam.reservation;
+package com.arindam.model;
 
-import com.arindam.flight.Flight;
-import com.arindam.passenger.Passenger;
-import com.arindam.seat.Seat;
+import com.arindam.model.Passenger;
 
 public class Reservation {
     private Flight flight;
@@ -30,7 +28,7 @@ public class Reservation {
     public void print() {
         System.out.println("Reservation: " + passenger.getFirstName() + " " + passenger.getLastName());
         System.out.println("Flight: " + flight.getOrigin() + " to " + flight.getDestination() + " at " + flight.getDepartureTime() + " on " + flight.getArrivalTime());
-        System.out.println("Seat: " + seat.getSeatNumber() + " in row " + seat.getRowNumber());
+        System.out.println("Seat: " + seat.getColumnNumber() + " in row " + seat.getRowNumber());
     }
 
 }

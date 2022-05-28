@@ -1,7 +1,4 @@
-package com.arindam.flight;
-
-import com.arindam.reservation.Reservation;
-import com.arindam.seat.Seat;
+package com.arindam.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +17,7 @@ public class Flight {
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.capacity = capacity;
-        this.reservations = new HashMap<String, ArrayList<Seat>>();
+        this.reservations = new HashMap<>();
     }
 
     public String getOrigin() {
@@ -44,7 +41,7 @@ public class Flight {
     }
 
     public void addReservation(Reservation reservation) {
-        String seatNumber = reservation.getSeat().getSeatNumber();
+        String seatNumber = reservation.getSeat().getColumnNumber();
         String rowNumber = reservation.getSeat().getRowNumber();
         if (!reservations.containsKey(rowNumber)) {
             ArrayList<Seat> seats = new ArrayList<Seat>();
