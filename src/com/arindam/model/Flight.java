@@ -1,9 +1,13 @@
 package com.arindam.model;
 
+import com.arindam.util.SeatUtil;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 public class Flight {
+    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
     private String origin;
     private String destination;
     private String departureTime;
@@ -55,9 +59,12 @@ public class Flight {
     }
 
     public void print() {
-        System.out.println("Flight: " + origin + " to " + destination + " at " + departureTime + " on " + arrivalTime);
-        System.out.println("Capacity: " + capacity);
-        System.out.println("Reservations:");
+        String flightLog = "Flight: " + origin + " to " + destination + " at " + departureTime + " on " + arrivalTime;
+        logger.info(flightLog);
+        String capacityLog = "Capacity: " + capacity;
+        logger.info(capacityLog);
+        String reservationLog = "Reservations:";
+        logger.info(reservationLog);
         for (String rowNumber : reservations.keySet()) {
             ArrayList<Seat> seats = reservations.get(rowNumber);
             for (Seat seat : seats) {

@@ -1,6 +1,11 @@
 package com.arindam.model;
 
+import com.arindam.util.SeatUtil;
+
+import java.util.logging.Logger;
+
 public class Reservation {
+    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
     private Flight flight;
     private Passenger passenger;
     private Seat seat;
@@ -24,9 +29,12 @@ public class Reservation {
     }
 
     public void print() {
-        System.out.println("Reservation: " + passenger.getFirstName() + " " + passenger.getLastName());
-        System.out.println("Flight: " + flight.getOrigin() + " to " + flight.getDestination() + " at " + flight.getDepartureTime() + " on " + flight.getArrivalTime());
-        System.out.println("Seat: " + seat.getColumnNumber() + " in row " + seat.getRowNumber());
+        String reservationLog = "Reservation: " + passenger.getFirstName() + " " + passenger.getLastName();
+        logger.info(reservationLog);
+        String flightLog = "Flight: " + flight.getOrigin() + " to " + flight.getDestination() + " at " + flight.getDepartureTime() + " on " + flight.getArrivalTime();
+        logger.info(flightLog);
+        String seatLog = "Seat: " + seat.getColumnNumber() + " in row " + seat.getRowNumber();
+        logger.info(seatLog);
     }
 
 }

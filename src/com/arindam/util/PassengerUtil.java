@@ -3,23 +3,25 @@ package com.arindam.util;
 import com.arindam.model.Passenger;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class PassengerUtil {
+    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
     public static Passenger passengerUtil() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter firstName: ");
+        logger.info("Enter firstName: ");
         String firstName = scanner.nextLine();
-        System.out.println("Enter lastName: ");
+        logger.info("Enter lastName: ");
         String lastName = scanner.nextLine();
-        System.out.println("Enter phoneNumber: ");
+        logger.info("Enter phoneNumber: ");
         String phoneNumber = scanner.nextLine();
-        System.out.println("Enter email: ");
+        logger.info("Enter email: ");
         String email = scanner.nextLine();
-        System.out.println("Enter address: ");
+        logger.info("Enter address: ");
         String address = scanner.nextLine();
-        System.out.println("Enter city: ");
+        logger.info("Enter city: ");
         String city = scanner.nextLine();
-        System.out.println("Enter state: ");
+        logger.info("Enter state: ");
         String state = scanner.nextLine();
         // Create a new passenger
         scanner.close();

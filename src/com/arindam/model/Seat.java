@@ -1,6 +1,11 @@
 package com.arindam.model;
 
+import com.arindam.util.SeatUtil;
+
+import java.util.logging.Logger;
+
 public class Seat {
+    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
     private String columnNumber;
     private String rowNumber;
 
@@ -18,6 +23,7 @@ public class Seat {
     }
 
     public void print() {
-        System.out.println("Seat: " + columnNumber + " in row " + rowNumber);
+        String print = "Seat: " + columnNumber + " in row " + rowNumber;
+        logger.info(print);
     }
 }

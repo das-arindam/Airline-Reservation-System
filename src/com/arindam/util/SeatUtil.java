@@ -3,17 +3,18 @@ package com.arindam.util;
 import com.arindam.model.Seat;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class SeatUtil {
+    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
     public static Seat seatUtil() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter column number");
+        logger.info("Enter column number");
         String columnNumber = scanner.nextLine();
-        System.out.println("Enter row number");
+        logger.info("Enter row number");
         String rowNumber = scanner.nextLine();
-        Seat seat = new Seat(columnNumber, rowNumber);
         scanner.close();
-        return seat;
+        return new Seat(columnNumber, rowNumber);
     }
 }
 

@@ -6,7 +6,10 @@ import com.arindam.model.Reservation;
 import com.arindam.model.Seat;
 import com.arindam.service.Onboard;
 
+import java.util.logging.Logger;
+
 public class Util {
+    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
     public void util(Flight flight, Seat seat, Passenger passenger) {
 
         // Create a new seat
@@ -18,7 +21,7 @@ public class Util {
             // Print the reservation
             reservation.print();
         } else {
-            System.out.println("Reservation not possible!");
+            logger.info("Reservation not possible!");
         }
         // Print the flight
         flight.print();
