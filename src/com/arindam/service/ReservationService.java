@@ -4,7 +4,6 @@ import com.arindam.model.Flight;
 import com.arindam.model.Passenger;
 import com.arindam.model.Reservation;
 import com.arindam.model.Seat;
-import com.arindam.util.SeatUtil;
 
 import java.util.logging.Logger;
 

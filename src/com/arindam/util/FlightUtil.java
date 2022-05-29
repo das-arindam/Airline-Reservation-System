@@ -21,7 +21,6 @@ public class FlightUtil {
         logger.info("Enter flight capacity");
         String space = scanner.nextLine();
         int flightCapacity = Integer.parseInt(space);
-        
         return new Flight(flightOrigin, flightDestination, flightDepartureTime, flightArrivalTime, flightCapacity);
     }
 }

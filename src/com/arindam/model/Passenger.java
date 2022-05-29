@@ -4,13 +4,13 @@ import java.util.logging.Logger;
 
 public class Passenger {
     static Logger logger = Logger.getLogger(Passenger.class.getName());
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
-    private String email;
-    private String address;
-    private String city;
-    private String state;
+    private final String firstName;
+    private final String lastName;
+    private final String phoneNumber;
+    private final String email;
+    private final String address;
+    private final String city;
+    private final String state;
 
     public Passenger(String firstName, String lastName, String phoneNumber, String email, String address, String city, String state) {
         this.firstName = firstName;

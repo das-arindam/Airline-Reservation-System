@@ -4,9 +4,9 @@ import java.util.logging.Logger;
 
 public class Reservation {
     static Logger logger = Logger.getLogger(Reservation.class.getName());
-    private Flight flight;
-    private Passenger passenger;
-    private Seat seat;
+    private final Flight flight;
+    private final Passenger passenger;
+    private final Seat seat;
 
     public Reservation(Flight flight, Passenger passenger, Seat seat) {
         this.flight = flight;

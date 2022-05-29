@@ -8,12 +8,12 @@ import java.util.logging.Logger;
 
 public class Flight {
     static Logger logger = Logger.getLogger(Flight.class.getName());
-    private String origin;
-    private String destination;
-    private String departureTime;
-    private String arrivalTime;
-    private int capacity;
-    private HashMap<String, ArrayList<Seat>> reservations;
+    private final String origin;
+    private final String destination;
+    private final String departureTime;
+    private final String arrivalTime;
+    private final int capacity;
+    private final HashMap<String, ArrayList<Seat>> reservations;
 
     public Flight(String origin, String destination, String departureTime, String arrivalTime, int capacity) {
         this.origin = origin;

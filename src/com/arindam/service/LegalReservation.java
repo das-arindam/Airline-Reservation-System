@@ -9,11 +9,7 @@ public class LegalReservation {
 
     public static boolean isLegal(Flight flight) {
 
-        if (flight.getCapacity() - 1 >= 0)
-
-            return true;
-
-        return false;
+        return flight.getCapacity() - 1 >= 0;
     }
 
 }

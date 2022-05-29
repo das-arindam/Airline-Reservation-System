@@ -4,8 +4,8 @@ import java.util.logging.Logger;
 
 public class Seat {
     static Logger logger = Logger.getLogger(Seat.class.getName());
-    private String columnNumber;
-    private String rowNumber;
+    private final String columnNumber;
+    private final String rowNumber;
 
     public Seat(String columnNumber, String rowNumber) {
         this.columnNumber = columnNumber;
