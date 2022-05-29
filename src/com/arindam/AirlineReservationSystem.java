@@ -6,7 +6,7 @@ import com.arindam.model.Seat;
 import com.arindam.util.FlightUtil;
 import com.arindam.util.PassengerUtil;
 import com.arindam.util.SeatUtil;
-import com.arindam.util.Util;
+import com.arindam.service.ReservationService;
 
 import java.util.logging.Logger;
 
@@ -17,7 +17,7 @@ public class AirlineReservationSystem {
         Flight flight = FlightUtil.flightUtil();
         Seat seat = SeatUtil.seatUtil();
         Passenger passenger = PassengerUtil.passengerUtil();
-        Util.util(flight, seat, passenger);
+        ReservationService.util(flight, seat, passenger);
 
 
     }

@@ -4,8 +4,8 @@ import com.arindam.model.Flight;
 
 import java.util.logging.Logger;
 
-public class Onboard {
-    static Logger logger = Logger.getLogger(Onboard.class.getName());
+public class LegalReservation {
+    static Logger logger = Logger.getLogger(LegalReservation.class.getName());
 
     public static boolean isLegal(Flight flight) {
 
