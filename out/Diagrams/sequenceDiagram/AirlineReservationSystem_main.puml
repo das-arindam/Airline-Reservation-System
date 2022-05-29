@@ -55,68 +55,68 @@ Flight -> Seat : 16. getRowNumber(): returns the row number
 activate Seat
 Seat --> Flight : add reserved seat to the flight
 deactivate Seat
-Flight -> Reservation : 17. getSeat() : returns seat details to reservation
+Flight -> Reservation : 17. getSeat(): returns seat details to reservation
 activate Reservation
 Reservation --> Flight : add reservation to flight
 deactivate Reservation
-Flight -> Reservation : 18. getSeat() :adds reservation sea
+Flight -> Reservation : 18. getSeat():  returns seat details to reservation
 activate Reservation
-Reservation --> Flight
+Reservation --> Flight : add reservation to flight
 deactivate Reservation
-Flight --> ReservationService
+Flight --> ReservationService : returns booked seat details to reservation service
 deactivate Flight
-ReservationService -> Reservation : 19. print
+ReservationService -> Reservation : 19. print: prints the reservation details
 activate Reservation
-Reservation -> Passenger : 20. getFirstName
+Reservation -> Passenger : 20. getFirstName(): returns the first name of the passenger
 activate Passenger
-Passenger --> Reservation
+Passenger --> Reservation : returns the first name of the passenger
 deactivate Passenger
-Reservation -> Passenger : 21. getLastName
+Reservation -> Passenger : 21. getLastName(): returns the last name of the passenger
 activate Passenger
-Passenger --> Reservation
+Passenger --> Reservation : returns the last name of the passenger
 deactivate Passenger
-Reservation -> Flight : 22. getOrigin
+Reservation -> Flight : 22. getOrigin(): returns the origin of the flight
 activate Flight
-Flight --> Reservation
+Flight --> Reservation : returns the origin of the flight
 deactivate Flight
-Reservation -> Flight : 23. getDestination
+Reservation -> Flight : 23. getDestination(): returns the destination of the flight
 activate Flight
-Flight --> Reservation
+Flight --> Reservation : returns the destination of the flight
 deactivate Flight
-Reservation -> Flight : 24. getDepartureTime
+Reservation -> Flight : 24. getDepartureTime(): returns the departure time of the flight
 activate Flight
-Flight --> Reservation
+Flight --> Reservation : returns the departure time of the flight
 deactivate Flight
-Reservation -> Flight : 25. getArrivalTime
+Reservation -> Flight : 25. getArrivalTime(): returns the arrival time of the flight
 activate Flight
-Flight --> Reservation
+Flight --> Reservation : returns the arrival time of the flight
 deactivate Flight
-Reservation -> Seat : 26. getColumnNumber
+Reservation -> Seat : 26. getColumnNumber(): returns the column number of the seat
 activate Seat
-Seat --> Reservation
+Seat --> Reservation : returns the column number of the seat
 deactivate Seat
-Reservation -> Seat : 27. getRowNumber
+Reservation -> Seat : 27. getRowNumber(): returns the row number of the seat
 activate Seat
-Seat --> Reservation
+Seat --> Reservation : returns the row number of the seat
 deactivate Seat
-Reservation --> ReservationService
+Reservation --> ReservationService : returns the reservation details to reservation service
 deactivate Reservation
-ReservationService -> Flight : 28. print
+ReservationService -> Flight : 28. print(): prints the reservation details
 activate Flight
-Flight -> Seat : 29. print
+Flight -> Seat : 29. print(): prints the seat details
 activate Seat
-Seat --> Flight
+Seat --> Flight : returns the seat details
 deactivate Seat
-Flight --> ReservationService
+Flight --> ReservationService : returns the seat details to reservation service
 deactivate Flight
-ReservationService -> Passenger : 30. print
+ReservationService -> Passenger : 30. print : prints the passenger details
 activate Passenger
-Passenger --> ReservationService
+Passenger --> ReservationService : returns the passenger details to reservation service
 deactivate Passenger
 else
 ReservationService --> AirlineReservationSystem : reservation is not possible!
 end
-ReservationService --> AirlineReservationSystem
+ReservationService --> AirlineReservationSystem : reservation is possible and returns the reservation details to the AirlineReservationSystem
 deactivate ReservationService
-return
+return : returns the reservation details to the User
 @enduml
