@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class AirlineReservationSystem {
-    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
+    static Logger logger = Logger.getLogger(AirlineReservationSystem.class.getName());
     public static void main(String[] args) {
         Flight flight = FlightUtil.flightUtil();
         Seat seat = SeatUtil.seatUtil();

@@ -5,7 +5,7 @@ import com.arindam.util.SeatUtil;
 import java.util.logging.Logger;
 
 public class Seat {
-    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
+    static Logger logger = Logger.getLogger(Seat.class.getName());
     private String columnNumber;
     private String rowNumber;
 

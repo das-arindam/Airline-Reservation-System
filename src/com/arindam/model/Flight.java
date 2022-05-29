@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.logging.Logger;
 
 public class Flight {
-    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
+    static Logger logger = Logger.getLogger(Flight.class.getName());
     private String origin;
     private String destination;
     private String departureTime;

@@ -5,7 +5,7 @@ import com.arindam.util.SeatUtil;
 import java.util.logging.Logger;
 
 public class Reservation {
-    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
+    static Logger logger = Logger.getLogger(Reservation.class.getName());
     private Flight flight;
     private Passenger passenger;
     private Seat seat;

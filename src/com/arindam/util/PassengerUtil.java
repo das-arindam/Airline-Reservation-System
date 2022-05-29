@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class PassengerUtil {
-    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
+    static Logger logger = Logger.getLogger(PassengerUtil.class.getName());
     public static Passenger passengerUtil() {
         Scanner scanner = new Scanner(System.in);
         logger.info("Enter firstName: ");

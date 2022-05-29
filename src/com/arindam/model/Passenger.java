@@ -5,7 +5,7 @@ import com.arindam.util.SeatUtil;
 import java.util.logging.Logger;
 
 public class Passenger {
-    static Logger logger = Logger.getLogger(SeatUtil.class.getName());
+    static Logger logger = Logger.getLogger(Passenger.class.getName());
     private String firstName;
     private String lastName;
     private String phoneNumber;
