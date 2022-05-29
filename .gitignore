@@ -1,3 +1,5 @@
+!/out/Diagrams/
+
 ### VisualStudioCode template
 .vscode/*
 !.vscode/settings.json
@@ -636,4 +638,3 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
-!/out/Diagrams/
