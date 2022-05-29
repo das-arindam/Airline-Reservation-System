@@ -1,0 +1,118 @@
+@startuml
+participant Actor
+Actor -> AirlineReservationSystem : main
+activate AirlineReservationSystem
+AirlineReservationSystem -> FlightUtil : flightUtil
+activate FlightUtil
+create Flight
+FlightUtil -> Flight : new
+activate Flight
+Flight --> FlightUtil
+deactivate Flight
+FlightUtil --> AirlineReservationSystem
+deactivate FlightUtil
+AirlineReservationSystem -> SeatUtil : seatUtil
+activate SeatUtil
+create Seat
+SeatUtil -> Seat : new
+activate Seat
+Seat --> SeatUtil
+deactivate Seat
+SeatUtil --> AirlineReservationSystem
+deactivate SeatUtil
+AirlineReservationSystem -> PassengerUtil : passengerUtil
+activate PassengerUtil
+create Passenger
+PassengerUtil -> Passenger : new
+activate Passenger
+Passenger --> PassengerUtil
+deactivate Passenger
+PassengerUtil --> AirlineReservationSystem
+deactivate PassengerUtil
+AirlineReservationSystem -> ReservationService : util
+activate ReservationService
+ReservationService -> LegalReservation : isLegal
+activate LegalReservation
+LegalReservation -> Flight : getCapacity
+activate Flight
+Flight --> LegalReservation
+deactivate Flight
+LegalReservation --> ReservationService
+deactivate LegalReservation
+create Reservation
+ReservationService -> Reservation : new
+activate Reservation
+Reservation --> ReservationService
+deactivate Reservation
+ReservationService -> Flight : addReservation
+activate Flight
+Flight -> Reservation : getSeat
+activate Reservation
+Reservation --> Flight
+deactivate Reservation
+Flight -> Seat : getRowNumber
+activate Seat
+Seat --> Flight
+deactivate Seat
+Flight -> Reservation : getSeat
+activate Reservation
+Reservation --> Flight
+deactivate Reservation
+Flight -> Reservation : getSeat
+activate Reservation
+Reservation --> Flight
+deactivate Reservation
+Flight --> ReservationService
+deactivate Flight
+ReservationService -> Reservation : print
+activate Reservation
+Reservation -> Passenger : getFirstName
+activate Passenger
+Passenger --> Reservation
+deactivate Passenger
+Reservation -> Passenger : getLastName
+activate Passenger
+Passenger --> Reservation
+deactivate Passenger
+Reservation -> Flight : getOrigin
+activate Flight
+Flight --> Reservation
+deactivate Flight
+Reservation -> Flight : getDestination
+activate Flight
+Flight --> Reservation
+deactivate Flight
+Reservation -> Flight : getDepartureTime
+activate Flight
+Flight --> Reservation
+deactivate Flight
+Reservation -> Flight : getArrivalTime
+activate Flight
+Flight --> Reservation
+deactivate Flight
+Reservation -> Seat : getColumnNumber
+activate Seat
+Seat --> Reservation
+deactivate Seat
+Reservation -> Seat : getRowNumber
+activate Seat
+Seat --> Reservation
+deactivate Seat
+Reservation --> ReservationService
+deactivate Reservation
+ReservationService -> Flight : print
+activate Flight
+Flight -> Seat : print
+activate Seat
+Seat --> Flight
+deactivate Seat
+Flight --> ReservationService
+deactivate Flight
+ReservationService -> Passenger : print
+activate Passenger
+Passenger --> ReservationService
+deactivate Passenger
+ReservationService --> AirlineReservationSystem
+deactivate ReservationService
+return
+@enduml

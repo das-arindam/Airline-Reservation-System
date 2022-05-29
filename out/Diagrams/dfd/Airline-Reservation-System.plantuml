@@ -1,0 +1,91 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AirlineReservationSystem {
+  + AirlineReservationSystem(): 
+  + main(String[]): void
+}
+class Flight {
+  + Flight(String, String, String, String, int): 
+  + origin: String
+  + departureTime: String
+  + destination: String
+  + arrivalTime: String
+  + capacity: int
+  + addReservation(Reservation): void
+  + print(): void
+  + arrivalTime: String
+  + origin: String
+  + capacity: int
+  + seats: List<Seat>
+  + departureTime: String
+  + destination: String
+}
+class FlightUtil {
+  + FlightUtil(): 
+  + flightUtil(): Flight
+}
+class LegalReservation {
+  + LegalReservation(): 
+  + isLegal(Flight): boolean
+}
+class Passenger {
+  + Passenger(String, String, String, String, String, String, String): 
+  + lastName: String
+  + firstName: String
+  + city: String
+  + email: String
+  + phoneNumber: String
+  + state: String
+  + address: String
+  + print(): void
+  + lastName: String
+  + email: String
+  + phoneNumber: String
+  + city: String
+  + state: String
+  + firstName: String
+  + address: String
+}
+class PassengerUtil {
+  + PassengerUtil(): 
+  + passengerUtil(): Passenger
+}
+class Reservation {
+  + Reservation(Flight, Passenger, Seat): 
+  + flight: Flight
+  + passenger: Passenger
+  + seat: Seat
+  + print(): void
+  + passenger: Passenger
+  + flight: Flight
+  + seat: Seat
+}
+class ReservationService {
+  + ReservationService(): 
+  + util(Flight, Seat, Passenger): void
+}
+class Seat {
+  + Seat(String, String): 
+  + columnNumber: String
+  + rowNumber: String
+  + print(): void
+  + columnNumber: String
+  + rowNumber: String
+}
+class SeatUtil {
+  + SeatUtil(): 
+  + seatUtil(): Seat
+}
+
+FlightUtil                -[#595959,dashed]->  Flight                   : "«create»"
+PassengerUtil             -[#595959,dashed]->  Passenger                : "«create»"
+Reservation              "1" *-[#595959,plain]-> "flight\n1" Flight                   
+Reservation              "1" *-[#595959,plain]-> "passenger\n1" Passenger                
+Reservation              "1" *-[#595959,plain]-> "seat\n1" Seat                     
+ReservationService        -[#595959,dashed]->  Reservation              : "«create»"
+SeatUtil                  -[#595959,dashed]->  Seat                     : "«create»"
+@enduml
