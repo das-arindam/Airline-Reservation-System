@@ -1,117 +1,121 @@
 @startuml
-participant Actor
-Actor -> AirlineReservationSystem : main
+actor Actor
+Actor -> AirlineReservationSystem : 1. main(): user interacts with the application
 activate AirlineReservationSystem
-AirlineReservationSystem -> FlightUtil : flightUtil
+AirlineReservationSystem -> FlightUtil : 2. flightUtil(): user enters flight details
 activate FlightUtil
 create Flight
-FlightUtil -> Flight : new
+FlightUtil -> Flight : 3. new(flight details): new flight object is created
 activate Flight
-Flight --> FlightUtil
+Flight --> FlightUtil : flight object is returned to the FlightUtil
 deactivate Flight
-FlightUtil --> AirlineReservationSystem
+FlightUtil --> AirlineReservationSystem : flight object is returned to the AirlineReservationSystem
 deactivate FlightUtil
-AirlineReservationSystem -> SeatUtil : seatUtil
+AirlineReservationSystem -> SeatUtil : 4. seatUtil(seatDetails): user enters seat details to be reserved
 activate SeatUtil
 create Seat
-SeatUtil -> Seat : new
+SeatUtil -> Seat : 5. new(seatDetails): new seat object is created
 activate Seat
 Seat --> SeatUtil
 deactivate Seat
 SeatUtil --> AirlineReservationSystem
 deactivate SeatUtil
-AirlineReservationSystem -> PassengerUtil : passengerUtil
+AirlineReservationSystem -> PassengerUtil : 6. passengerUtil(passengerDetails): user enters passengerDetails
 activate PassengerUtil
 create Passenger
-PassengerUtil -> Passenger : new
+PassengerUtil -> Passenger : 7. new(passengerDetails): new passenger object is created
 activate Passenger
-Passenger --> PassengerUtil
+Passenger --> PassengerUtil : 8. passenger object is returned to the PassengerUtil
 deactivate Passenger
-PassengerUtil --> AirlineReservationSystem
+PassengerUtil --> AirlineReservationSystem : 9. passenger object is returned to the AirlineReservationSystem
 deactivate PassengerUtil
-AirlineReservationSystem -> ReservationService : util
+alt if reservation is possible
+AirlineReservationSystem -> ReservationService : 10. util() create a reservation
 activate ReservationService
-ReservationService -> LegalReservation : isLegal
+ReservationService -> LegalReservation : 11. isLegal(flight, seat): if flightCapacity>seat : reservation is possible
 activate LegalReservation
-LegalReservation -> Flight : getCapacity
+LegalReservation -> Flight : 12. getCapacity(flight): returned flight capacity
 activate Flight
-Flight --> LegalReservation
+Flight --> LegalReservation : get flightCapacity
 deactivate Flight
-LegalReservation --> ReservationService
+LegalReservation --> ReservationService : is reservation legal
 deactivate LegalReservation
 create Reservation
-ReservationService -> Reservation : new
+ReservationService -> Reservation : 13. new(reservationDetails): new reservation object is created
 activate Reservation
-Reservation --> ReservationService
+Reservation --> ReservationService : reservation object is returned to ReservationService
 deactivate Reservation
-ReservationService -> Flight : addReservation
+ReservationService -> Flight : 14. addReservation(passenger, seat) : creates a seat reservation for the passenger
 activate Flight
-Flight -> Reservation : getSeat
+Flight -> Reservation : 15. getSeat(): returns the reserved seat
 activate Reservation
-Reservation --> Flight
+Reservation --> Flight : adds the reservation to the flight
 deactivate Reservation
-Flight -> Seat : getRowNumber
+Flight -> Seat : 16. getRowNumber(): returns the row number
 activate Seat
-Seat --> Flight
+Seat --> Flight : add reserved seat to the flight
 deactivate Seat
-Flight -> Reservation : getSeat
+Flight -> Reservation : 17. getSeat() : returns seat details to reservation
 activate Reservation
-Reservation --> Flight
+Reservation --> Flight : add reservation to flight
 deactivate Reservation
-Flight -> Reservation : getSeat
+Flight -> Reservation : 18. getSeat() :adds reservation sea
 activate Reservation
 Reservation --> Flight
 deactivate Reservation
 Flight --> ReservationService
 deactivate Flight
-ReservationService -> Reservation : print
+ReservationService -> Reservation : 19. print
 activate Reservation
-Reservation -> Passenger : getFirstName
+Reservation -> Passenger : 20. getFirstName
 activate Passenger
 Passenger --> Reservation
 deactivate Passenger
-Reservation -> Passenger : getLastName
+Reservation -> Passenger : 21. getLastName
 activate Passenger
 Passenger --> Reservation
 deactivate Passenger
-Reservation -> Flight : getOrigin
+Reservation -> Flight : 22. getOrigin
 activate Flight
 Flight --> Reservation
 deactivate Flight
-Reservation -> Flight : getDestination
+Reservation -> Flight : 23. getDestination
 activate Flight
 Flight --> Reservation
 deactivate Flight
-Reservation -> Flight : getDepartureTime
+Reservation -> Flight : 24. getDepartureTime
 activate Flight
 Flight --> Reservation
 deactivate Flight
-Reservation -> Flight : getArrivalTime
+Reservation -> Flight : 25. getArrivalTime
 activate Flight
 Flight --> Reservation
 deactivate Flight
-Reservation -> Seat : getColumnNumber
+Reservation -> Seat : 26. getColumnNumber
 activate Seat
 Seat --> Reservation
 deactivate Seat
-Reservation -> Seat : getRowNumber
+Reservation -> Seat : 27. getRowNumber
 activate Seat
 Seat --> Reservation
 deactivate Seat
 Reservation --> ReservationService
 deactivate Reservation
-ReservationService -> Flight : print
+ReservationService -> Flight : 28. print
 activate Flight
-Flight -> Seat : print
+Flight -> Seat : 29. print
 activate Seat
 Seat --> Flight
 deactivate Seat
 Flight --> ReservationService
 deactivate Flight
-ReservationService -> Passenger : print
+ReservationService -> Passenger : 30. print
 activate Passenger
 Passenger --> ReservationService
 deactivate Passenger
+else
+ReservationService --> AirlineReservationSystem : reservation is not possible!
+end
 ReservationService --> AirlineReservationSystem
 deactivate ReservationService
 return
