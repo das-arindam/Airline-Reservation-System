@@ -24,7 +24,7 @@ public class PassengerUtil {
         String city = scanner.nextLine();
         logger.info("Enter state: ");
         String state = scanner.nextLine();
-        scanner.close();
+        
         return new Passenger(firstName, lastName, phoneNumber, email, address, city, state);
 
     }
