@@ -14,7 +14,7 @@ public class SeatUtil {
         String columnNumber = scanner.nextLine();
         logger.info("Enter row number");
         String rowNumber = scanner.nextLine();
-        
+
         return new Seat(columnNumber, rowNumber);
     }
 }
