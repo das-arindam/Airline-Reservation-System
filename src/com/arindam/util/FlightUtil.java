@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 public class FlightUtil {
     static Logger logger = Logger.getLogger(FlightUtil.class.getName());
+
     public static Flight flightUtil() {
         Scanner scanner = new Scanner(System.in);
         logger.info("Enter flight origin");

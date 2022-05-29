@@ -1,7 +1,5 @@
 package com.arindam.model;
 
-import com.arindam.util.SeatUtil;
-
 import java.util.logging.Logger;
 
 public class Reservation {

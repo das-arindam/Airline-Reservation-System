@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 public class SeatUtil {
     static Logger logger = Logger.getLogger(SeatUtil.class.getName());
+
     public static Seat seatUtil() {
         Scanner scanner = new Scanner(System.in);
         logger.info("Enter column number");

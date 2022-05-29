@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 public class PassengerUtil {
     static Logger logger = Logger.getLogger(PassengerUtil.class.getName());
+
     public static Passenger passengerUtil() {
         Scanner scanner = new Scanner(System.in);
         logger.info("Enter firstName: ");
@@ -23,7 +24,6 @@ public class PassengerUtil {
         String city = scanner.nextLine();
         logger.info("Enter state: ");
         String state = scanner.nextLine();
-        // Create a new passenger
         scanner.close();
         return new Passenger(firstName, lastName, phoneNumber, email, address, city, state);
 

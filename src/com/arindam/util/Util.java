@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 public class Util {
     static Logger logger = Logger.getLogger(SeatUtil.class.getName());
+
     public void util(Flight flight, Seat seat, Passenger passenger) {
 
         // Create a new seat
