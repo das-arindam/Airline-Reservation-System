@@ -51,12 +51,18 @@ public class Passenger {
     }
 
     public void print() {
-        logger.info("Passenger: " + firstName + " " + lastName);
-        logger.info("Phone: " + phoneNumber);
-        logger.info("Email: " + email);
-        logger.info("Address: " + address);
-        logger.info("City: " + city);
-        logger.info("State: " + state);
+        String msg = "Passenger: " + firstName + " " + lastName;
+        logger.info(msg);
+        msg = "Phone: " + phoneNumber;
+        logger.info(msg);
+        msg = "Email: " + email;
+        logger.info(msg);
+        msg = "Address: " + address;
+        logger.info(msg);
+        msg = "City: " + city;
+        logger.info(msg);
+        msg = "State: " + state;
+        logger.info(msg);
     }
 
 }

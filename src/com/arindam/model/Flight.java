@@ -2,6 +2,8 @@ package com.arindam.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class Flight {
@@ -43,10 +45,9 @@ public class Flight {
     }
 
     public void addReservation(Reservation reservation) {
-        String seatNumber = reservation.getSeat().getColumnNumber();
         String rowNumber = reservation.getSeat().getRowNumber();
         if (!reservations.containsKey(rowNumber)) {
-            ArrayList<Seat> seats = new ArrayList<Seat>();
+            ArrayList<Seat> seats = new ArrayList<>();
             seats.add(reservation.getSeat());
             reservations.put(rowNumber, seats);
         } else {
@@ -63,16 +64,16 @@ public class Flight {
         logger.info(capacityLog);
         String reservationLog = "Reservations:";
         logger.info(reservationLog);
-        for (String rowNumber : reservations.keySet()) {
-            ArrayList<Seat> seats = reservations.get(rowNumber);
+        for (Map.Entry<String, ArrayList<Seat>> entry : reservations.entrySet()) {
+            ArrayList<Seat> seats = entry.getValue();
             for (Seat seat : seats) {
                 seat.print();
             }
         }
     }
 
-    public ArrayList<Seat> getSeats() {
-        ArrayList<Seat> seats = new ArrayList<Seat>();
+    public List<Seat> getSeats() {
+        List<Seat> seats = new ArrayList<>();
         for (String rowNumber : reservations.keySet()) {
             ArrayList<Seat> rowSeats = reservations.get(rowNumber);
             for (Seat seat : rowSeats) {
