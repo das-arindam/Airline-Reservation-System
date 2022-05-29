@@ -17,10 +17,7 @@ public class AirlineReservationSystem {
         Flight flight = FlightUtil.flightUtil();
         Seat seat = SeatUtil.seatUtil();
         Passenger passenger = PassengerUtil.passengerUtil();
-
-
-        Util utl = new Util();
-        utl.util(flight, seat, passenger);
+        Util.util(flight, seat, passenger);
 
 
     }

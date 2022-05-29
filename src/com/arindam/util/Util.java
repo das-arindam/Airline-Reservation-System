@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class Util {
     static Logger logger = Logger.getLogger(SeatUtil.class.getName());
 
-    public void util(Flight flight, Seat seat, Passenger passenger) {
+    public static void util(Flight flight, Seat seat, Passenger passenger) {
         if (Onboard.isLegal(flight)) {
             Reservation reservation = new Reservation(flight, passenger, seat);
             flight.addReservation(reservation);
